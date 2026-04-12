@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swami Flowers</title>
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Iconify Icons -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <h2 class="logo">Swami Flowers</h2>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h2 class="hero-subtitle">Welcome to Bloom & Bliss</h2>
+        <h1>Swami Flowers Store</h1>
+        <p>Beautiful flowers for every occasion</p>
+        <p class="hero-description">
+          Discover our premium collection of fresh, hand-picked flowers
+          delivered right to your doorstep
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary">Shop Now</button>
+          <button class="btn-secondary">Learn More</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section class="about-us" id="about">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Swami Flowers</h2>
+          <p>
+            Welcome to Swami Flowers, your one-stop destination for the most
+            beautiful and fresh flowers in town. With over a decade of
+            experience in the floral industry, we have built our reputation on
+            quality, reliability, and exceptional customer service.
+          </p>
+        </div>
+        <div class="about-image">
+          <img
+            src="images/856999b8-3be7-4555-b2c3-d95a3bed6ce9.png"
+            alt="Swami Flowers"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOWERS COLLECTION -->
+    <section class="flowers-collection" id="products">
+      <h2>Our Flower Collection</h2>
+      <div class="flowers-grid">
+        <div class="flower-card">
+          <img src="images/Rose.png" alt="Rose" />
+          <h3>Rose</h3>
+          <p>₹200</p>
+          <button onclick="addToCart('Rose')">Add to Cart</button>
+        </div>
+
+        <div class="flower-card">
+          <img src="images/sunflower.jpeg" alt="Sunflower" />
+          <h3>Sunflower</h3>
+          <p>₹180</p>
+          <button onclick="addToCart('Sunflower')">Add to Cart</button>
+        </div>
+
+        <div class="flower-card">
+          <img src="images/lotus.jpg" alt="Lotus" />
+          <h3>Lotus</h3>
+          <p>₹220</p>
+          <button onclick="addToCart('Lotus')">Add to Cart</button>
+        </div>
+
+        <div class="flower-card">
+          <img src="images/jasmin.avif" alt="Jasmine" />
+          <h3>Jasmine</h3>
+          <p>₹190</p>
+          <button onclick="addToCart('Jasmine')">Add to Cart</button>
+        </div>
+
+        <div class="flower-card">
+          <img src="images/Chrysanthemum.webp" alt="Chrysanthemum" />
+          <h3>Chrysanthemum</h3>
+          <p>₹210</p>
+          <button onclick="addToCart('Chrysanthemum')">Add to Cart</button>
+        </div>
+
+        <div class="flower-card">
+          <img src="images/desi.jpg" alt="Daisy" />
+          <h3>Daisy</h3>
+          <p>₹160</p>
+          <button onclick="addToCart('Daisy')">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOWERPOTS -->
+    <section class="flowerpots" id="pots">
+      <h2>Decorative Flowerpots</h2>
+      <div class="flowerpots-grid">
+        <div class="flowerpot-card">
+          <img
+            src="images/pots/gradvis-plant-pot-pink__0614220_pe686849_s5.avif"
+            alt="Ceramic Pot"
+          />
+          <h3>Ceramic Flowerpot</h3>
+          <p>₹350</p>
+          <button onclick="addToCart('Ceramic Flowerpot')">Add to Cart</button>
+        </div>
+
+        <div class="flowerpot-card">
+          <img
+            src="images/pots/persillade-plant-pot-dark-grey__0439713_pe592235_s5.avif"
+            alt="Terracotta Pot"
+          />
+          <h3>Terracotta Pot</h3>
+          <p>₹250</p>
+          <button onclick="addToCart('Terracotta Pot')">Add to Cart</button>
+        </div>
+
+        <div class="flowerpot-card">
+          <img src="images/pots/shopping.webp" alt="Modern Pot" />
+          <h3>Modern Planter</h3>
+          <p>₹400</p>
+          <button onclick="addToCart('Modern Planter')">Add to Cart</button>
+        </div>
+
+        <div class="flowerpot-card">
+          <img src="images/pots/shopping (1).webp" alt="Hanging Pot" />
+          <h3>Hanging Basket</h3>
+          <p>₹300</p>
+          <button onclick="addToCart('Hanging Basket')">Add to Cart</button>
+        </div>
+
+        <div class="flowerpot-card">
+          <img src="images/pots/shopping (2).webp" alt="Stone Pot" />
+          <h3>Stone Planter</h3>
+          <p>₹450</p>
+          <button onclick="addToCart('Stone Planter')">Add to Cart</button>
+        </div>
+
+        <div class="flowerpot-card">
+          <img src="images/pots/shopping (3).webp" alt="Wooden Pot" />
+          <h3>Wooden Planter</h3>
+          <p>₹380</p>
+          <button onclick="addToCart('Wooden Planter')">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+      <h2>Customer Review</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <img
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+            alt="Priya Sharma"
+            class="customer-image"
+          />
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Swami Flowers delivered the most beautiful bouquet for my
+            anniversary. Fresh, vibrant, and exactly as pictured!"
+          </p>
+          <h4 class="customer-name">Swarupa Mote</h4>
+          <p class="customer-title">Customer</p>
+        </div>
+
+        <div class="testimonial-card">
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+            alt="Rahul Verma"
+            class="customer-image"
+          />
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Exceptional quality flowers and outstanding customer service. Will
+            definitely order again for all my special occasions."
+          </p>
+          <h4 class="customer-name">Rishi Dhotre</h4>
+          <p class="customer-title">Customer</p>
+        </div>
+
+        <div class="testimonial-card">
+          <img
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80"
+            alt="Anjali Gupta"
+            class="customer-image"
+          />
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "The flowerpots are absolutely stunning! They add such a beautiful
+            touch to my home garden. Highly recommended!"
+          </p>
+          <h4 class="customer-name">Ankita Deshpande</h4>
+          <p class="customer-title">Customer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <h2>Get in Touch</h2>
+      <p class="contact-subtitle">
+        We'd love to hear from you. Send us a message!
+      </p>
+      <div class="contact-container">
+        <form id="contactForm" class="contact-form">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" placeholder="Your Phone Number" />
+          </div>
+          <div class="form-group">
+            <textarea
+              id="message"
+              placeholder="Your Message"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        <div class="contact-info">
+          <div class="info-item">
+            <h4>📍 Address</h4>
+            <p>Shanivar Peth Pune - 411030</p>
+          </div>
+          <div class="info-item">
+            <h4>📞 Phone</h4>
+            <p>+91 9767917384</p>
+          </div>
+          <div class="info-item">
+            <h4>✉️ Email</h4>
+            <p>vandanadongre1921@gmail.com</p>
+          </div>
+          <div class="info-item">
+            <h4>🕐 Hours</h4>
+            <p>Mon - Sun: 9:00 AM - 9:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Swami Flowers</h3>
+          <p>
+            Your trusted source for fresh, beautiful flowers and premium
+            planters. We deliver joy and beauty to every occasion.
+          </p>
+          <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon"
+              ><iconify-icon
+                icon="mdi:facebook"
+                style="font-size: 20px"
+              ></iconify-icon>
+              Facebook</a
+            >
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"
+              ><iconify-icon
+                icon="mdi:instagram"
+                style="font-size: 20px"
+              ></iconify-icon>
+              Instagram</a
+            >
+            <a href="https://www.twitter.com" target="_blank" class="social-icon"
+              ><iconify-icon
+                icon="mdi:twitter"
+                style="font-size: 20px"
+              ></iconify-icon>
+              Twitter</a
+            >
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#flowers">Flowers</a></li>
+            <li><a href="#pots">Flowerpots</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p>📍 Address<br />Shanivar Peth Pune - 411030</p>
+          <p>📞 Phone<br />+91 9767917384</p>
+          <p>✉️ Email<br />vandanadongre1921@gmail.com</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to get updates about our new flowers and special offers!
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Swami Flowers. All rights reserved.</p>
+        <p>Designed with 💗 for flower lovers</p>
+      </div>
+    </footer>
+
+    <!-- JS Link -->
+    <script>
+      // Mobile hamburger menu functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+
+        hamburger.addEventListener("click", function () {
+          hamburger.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll("a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (event) {
+          if (!event.target.closest(".navbar")) {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+          }
+        });
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
