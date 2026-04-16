@@ -16,6 +16,9 @@
 
     <!-- Iconify Icons -->
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+    <!-- Razorpay Payment Gateway -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   </head>
 
   <body>
@@ -33,6 +36,11 @@
           <li><a href="#products">Products</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="#" onclick="openCart()" class="cart-link"
+              >🛒 Cart (<span id="cartCount">0</span>)</a
+            >
+          </li>
         </ul>
       </div>
     </nav>
@@ -42,7 +50,7 @@
       <div class="hero-content">
         <h2 class="hero-subtitle">Welcome to Bloom & Bliss</h2>
         <h1>Swami Flowers Store</h1>
-        <p>Beautiful flowers for every occasion</p>
+        <p>Natural And Beautiful flowers for every occasion</p>
         <p class="hero-description">
           Discover our premium collection of fresh, hand-picked flowers
           delivered right to your doorstep
@@ -83,42 +91,84 @@
           <img src="images/Rose.png" alt="Rose" />
           <h3>Rose</h3>
           <p>₹200</p>
-          <button onclick="addToCart('Rose')">Add to Cart</button>
+          <div class="card-buttons">
+            <button onclick="addToCart('Rose')" class="btn-add-cart">
+              Add to Cart
+            </button>
+            <button onclick="orderNow('Rose')" class="btn-order-now">
+              Order Now
+            </button>
+          </div>
         </div>
 
         <div class="flower-card">
           <img src="images/sunflower.jpeg" alt="Sunflower" />
           <h3>Sunflower</h3>
           <p>₹180</p>
-          <button onclick="addToCart('Sunflower')">Add to Cart</button>
+          <div class="card-buttons">
+            <button onclick="addToCart('Sunflower')" class="btn-add-cart">
+              Add to Cart
+            </button>
+            <button onclick="orderNow('Sunflower')" class="btn-order-now">
+              Order Now
+            </button>
+          </div>
         </div>
 
         <div class="flower-card">
           <img src="images/lotus.jpg" alt="Lotus" />
           <h3>Lotus</h3>
           <p>₹220</p>
-          <button onclick="addToCart('Lotus')">Add to Cart</button>
+          <div class="card-buttons">
+            <button onclick="addToCart('Lotus')" class="btn-add-cart">
+              Add to Cart
+            </button>
+            <button onclick="orderNow('Lotus')" class="btn-order-now">
+              Order Now
+            </button>
+          </div>
         </div>
 
         <div class="flower-card">
           <img src="images/jasmin.avif" alt="Jasmine" />
           <h3>Jasmine</h3>
           <p>₹190</p>
-          <button onclick="addToCart('Jasmine')">Add to Cart</button>
+          <div class="card-buttons">
+            <button onclick="addToCart('Jasmine')" class="btn-add-cart">
+              Add to Cart
+            </button>
+            <button onclick="orderNow('Jasmine')" class="btn-order-now">
+              Order Now
+            </button>
+          </div>
         </div>
 
         <div class="flower-card">
-          <img src="images/Chrysanthemum.webp" alt="Chrysanthemum" />
-          <h3>Chrysanthemum</h3>
+          <img src="images/Red-hibiscus-1.webp" alt="Chrysanthemum" />
+          <h3>Hibiscus</h3>
           <p>₹210</p>
-          <button onclick="addToCart('Chrysanthemum')">Add to Cart</button>
+          <div class="card-buttons">
+            <button onclick="addToCart('Hibiscus')" class="btn-add-cart">
+              Add to Cart
+            </button>
+            <button onclick="orderNow('Hibiscus')" class="btn-order-now">
+              Order Now
+            </button>
+          </div>
         </div>
 
         <div class="flower-card">
           <img src="images/desi.jpg" alt="Daisy" />
           <h3>Daisy</h3>
           <p>₹160</p>
-          <button onclick="addToCart('Daisy')">Add to Cart</button>
+          <div class="card-buttons">
+            <button onclick="addToCart('Daisy')" class="btn-add-cart">
+              Add to Cart
+            </button>
+            <button onclick="orderNow('Daisy')" class="btn-order-now">
+              Order Now
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -134,7 +184,20 @@
           />
           <h3>Ceramic Flowerpot</h3>
           <p>₹350</p>
-          <button onclick="addToCart('Ceramic Flowerpot')">Add to Cart</button>
+          <div class="card-buttons">
+            <button
+              onclick="addToCart('Ceramic Flowerpot')"
+              class="btn-add-cart"
+            >
+              Add to Cart
+            </button>
+            <button
+              onclick="orderNow('Ceramic Flowerpot')"
+              class="btn-order-now"
+            >
+              Order Now
+            </button>
+          </div>
         </div>
 
         <div class="flowerpot-card">
@@ -144,137 +207,413 @@
           />
           <h3>Terracotta Pot</h3>
           <p>₹250</p>
-          <button onclick="addToCart('Terracotta Pot')">Add to Cart</button>
+          <div class="card-buttons">
+            <button onclick="addToCart('Terracotta Pot')" class="btn-add-cart">
+              Add to Cart
+            </button>
+            <button onclick="orderNow('Terracotta Pot')" class="btn-order-now">
+              Order Now
+            </button>
+          </div>
         </div>
 
         <div class="flowerpot-card">
           <img src="images/pots/shopping.webp" alt="Modern Pot" />
           <h3>Modern Planter</h3>
           <p>₹400</p>
-          <button onclick="addToCart('Modern Planter')">Add to Cart</button>
+          <div class="card-buttons">
+            <button onclick="addToCart('Modern Planter')" class="btn-add-cart">
+              Add to Cart
+            </button>
+            <button onclick="orderNow('Modern Planter')" class="btn-order-now">
+              Order Now
+            </button>
+          </div>
         </div>
 
         <div class="flowerpot-card">
           <img src="images/pots/shopping (1).webp" alt="Hanging Pot" />
           <h3>Hanging Basket</h3>
           <p>₹300</p>
-          <button onclick="addToCart('Hanging Basket')">Add to Cart</button>
+          <div class="card-buttons">
+            <button onclick="addToCart('Hanging Basket')" class="btn-add-cart">
+              Add to Cart
+            </button>
+            <button onclick="orderNow('Hanging Basket')" class="btn-order-now">
+              Order Now
+            </button>
+          </div>
         </div>
 
         <div class="flowerpot-card">
           <img src="images/pots/shopping (2).webp" alt="Stone Pot" />
           <h3>Stone Planter</h3>
           <p>₹450</p>
-          <button onclick="addToCart('Stone Planter')">Add to Cart</button>
+          <div class="card-buttons">
+            <button onclick="addToCart('Stone Planter')" class="btn-add-cart">
+              Add to Cart
+            </button>
+            <button onclick="orderNow('Stone Planter')" class="btn-order-now">
+              Order Now
+            </button>
+          </div>
         </div>
 
         <div class="flowerpot-card">
           <img src="images/pots/shopping (3).webp" alt="Wooden Pot" />
           <h3>Wooden Planter</h3>
           <p>₹380</p>
-          <button onclick="addToCart('Wooden Planter')">Add to Cart</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="testimonials" id="testimonials">
-      <h2>Customer Review</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <img
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
-            alt="Priya Sharma"
-            class="customer-image"
-          />
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Swami Flowers delivered the most beautiful bouquet for my
-            anniversary. Fresh, vibrant, and exactly as pictured!"
-          </p>
-          <h4 class="customer-name">Swarupa Mote</h4>
-          <p class="customer-title">Customer</p>
-        </div>
-
-        <div class="testimonial-card">
-          <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
-            alt="Rahul Verma"
-            class="customer-image"
-          />
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Exceptional quality flowers and outstanding customer service. Will
-            definitely order again for all my special occasions."
-          </p>
-          <h4 class="customer-name">Rishi Dhotre</h4>
-          <p class="customer-title">Customer</p>
-        </div>
-
-        <div class="testimonial-card">
-          <img
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80"
-            alt="Anjali Gupta"
-            class="customer-image"
-          />
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "The flowerpots are absolutely stunning! They add such a beautiful
-            touch to my home garden. Highly recommended!"
-          </p>
-          <h4 class="customer-name">Ankita Deshpande</h4>
-          <p class="customer-title">Customer</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
-      <h2>Get in Touch</h2>
-      <p class="contact-subtitle">
-        We'd love to hear from you. Send us a message!
-      </p>
-      <div class="contact-container">
-        <form id="contactForm" class="contact-form">
-          <div class="form-group">
-            <input type="text" id="name" placeholder="Your Name" required />
-          </div>
-          <div class="form-group">
-            <input type="email" id="email" placeholder="Your Email" required />
-          </div>
-          <div class="form-group">
-            <input type="tel" id="phone" placeholder="Your Phone Number" />
-          </div>
-          <div class="form-group">
-            <textarea
-              id="message"
-              placeholder="Your Message"
-              rows="5"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-        <div class="contact-info">
-          <div class="info-item">
-            <h4>📍 Address</h4>
-            <p>Shanivar Peth Pune - 411030</p>
-          </div>
-          <div class="info-item">
-            <h4>📞 Phone</h4>
-            <p>+91 9767917384</p>
-          </div>
-          <div class="info-item">
-            <h4>✉️ Email</h4>
-            <p>vandanadongre1921@gmail.com</p>
-          </div>
-          <div class="info-item">
-            <h4>🕐 Hours</h4>
-            <p>Mon - Sun: 9:00 AM - 9:00 PM</p>
+          <div class="card-buttons">
+            <button onclick="addToCart('Wooden Planter')" class="btn-add-cart">
+              Add to Cart
+            </button>
+            <button onclick="orderNow('Wooden Planter')" class="btn-order-now">
+              Order Now
+            </button>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ENHANCED CONTACT SECTION -->
+    <section class="enhanced-contact" id="contact">
+      <div class="contact-main-content">
+        <div class="contact-section-header">
+          <h2 class="contact-main-title">Contact Us</h2>
+          <p class="contact-subtitle">
+            We'd love to hear from you. Send us a message!
+          </p>
+        </div>
+        <div class="contact-grid">
+          <!-- Contact Form Card -->
+          <div class="contact-card form-card">
+            <div class="card-header">
+              <h3>Send us a Message</h3>
+              <p>We'd love to hear from you</p>
+            </div>
+            <form id="contactForm" class="enhanced-contact-form">
+              <div class="input-group">
+                <div class="input-wrapper">
+                  <input type="text" id="name" placeholder=" " required />
+                  <label for="name">Your Name</label>
+                  <span class="input-icon">👤</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <div class="input-wrapper">
+                  <input type="email" id="email" placeholder=" " required />
+                  <label for="email">Email Address</label>
+                  <span class="input-icon">📧</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <div class="input-wrapper">
+                  <input type="tel" id="phone" placeholder=" " />
+                  <label for="phone">Phone Number</label>
+                  <span class="input-icon">📱</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <div class="input-wrapper">
+                  <textarea
+                    id="message"
+                    placeholder=" "
+                    rows="4"
+                    required
+                  ></textarea>
+                  <label for="message">Your Message</label>
+                  <span class="input-icon">💬</span>
+                </div>
+              </div>
+              <button type="submit" class="enhanced-submit-btn">
+                <span>Send Message</span>
+                <span class="btn-icon">✈️</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Info Card -->
+          <div class="contact-card info-card">
+            <div class="card-header">
+              <h3>Contact Information</h3>
+              <p>Reach out to us anytime</p>
+            </div>
+            <div class="contact-info-list">
+              <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-content">
+                  <h4>Visit Our Store</h4>
+                  <p>Shanivar Peth, Pune - 411030</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">📞</div>
+                <div class="info-content">
+                  <h4>Call Us</h4>
+                  <p>+91 9767917384</p>
+                  <a href="tel:+919767917384" class="contact-action-btn"
+                    >Call Now</a
+                  >
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">💬</div>
+                <div class="info-content">
+                  <h4>WhatsApp</h4>
+                  <p>Quick responses guaranteed</p>
+                  <a
+                    href="https://wa.me/919767917384"
+                    class="contact-action-btn whatsapp"
+                    target="_blank"
+                    >Chat Now</a
+                  >
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">✉️</div>
+                <div class="info-content">
+                  <h4>Email Us</h4>
+                  <p>bhartie8484@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Card -->
+          <div class="contact-card visual-card">
+            <div class="visual-content">
+              <div class="image-stack">
+                <img
+                  src="images/contact.png"
+                  alt="Contact Us"
+                  class="contact-main-image"
+                />
+                <img
+                  src="images/mobile 1.png"
+                  alt="Mobile Contact"
+                  class="contact-mobile-image"
+                />
+              </div>
+              <div class="visual-overlay">
+                <h4>🌸 Fresh Flowers Delivered</h4>
+                <p>Beautiful arrangements for every occasion</p>
+                <div class="quick-actions">
+                  <button class="quick-action-btn" onclick="openCart()">
+                    🛒 View Cart
+                  </button>
+                  <button
+                    class="quick-action-btn"
+                    onclick="window.location.href='#products'"
+                  >
+                    🌹 Shop Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CART MODAL -->
+    <div id="cartModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Shopping Cart</h2>
+          <span class="close" onclick="closeCart()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div id="cartItems"></div>
+          <div class="cart-total">
+            <h3>Total: ₹<span id="cartTotal">0</span></h3>
+          </div>
+          <div class="cart-actions">
+            <button onclick="clearCart()" class="btn-secondary">
+              Clear Cart
+            </button>
+            <button onclick="proceedToCheckout()" class="btn-primary">
+              Proceed to Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkoutModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Checkout</h2>
+          <span class="close" onclick="closeCheckout()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form id="checkoutForm">
+            <div class="checkout-section">
+              <h3>Delivery Information</h3>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="customerName"
+                  placeholder="Full Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="customerEmail"
+                  placeholder="Email Address"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="tel"
+                  id="customerPhone"
+                  placeholder="Phone Number"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="deliveryAddress"
+                  placeholder="Delivery Address"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="checkout-section">
+              <h3>Payment Method</h3>
+              <div class="payment-methods">
+                <div class="payment-option">
+                  <input
+                    type="radio"
+                    id="upi"
+                    name="paymentMethod"
+                    value="upi"
+                    checked
+                  />
+                  <label for="upi" class="payment-label">
+                    <div class="payment-info">
+                      <span class="payment-title">UPI Payment</span>
+                      <div class="upi-options">
+                        <img
+                          src="https://cdn.iconscout.com/icon/free/png-256/phonepe-2709167-2249157.png"
+                          alt="PhonePe"
+                          class="upi-icon"
+                        />
+                        <img
+                          src="https://cdn.iconscout.com/icon/free/png-256/google-pay-2038307-1721670.png"
+                          alt="Google Pay"
+                          class="upi-icon"
+                        />
+                        <span class="upi-text">PhonePe, Google Pay & more</span>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+
+                <div class="payment-option">
+                  <input
+                    type="radio"
+                    id="card"
+                    name="paymentMethod"
+                    value="card"
+                  />
+                  <label for="card" class="payment-label">
+                    <div class="payment-info">
+                      <span class="payment-title">Credit/Debit Card</span>
+                      <div class="card-icons">
+                        <span class="card-icon">💳</span>
+                        <span class="card-text">Visa, Mastercard, RuPay</span>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+
+                <div class="payment-option">
+                  <input
+                    type="radio"
+                    id="netbanking"
+                    name="paymentMethod"
+                    value="netbanking"
+                  />
+                  <label for="netbanking" class="payment-label">
+                    <div class="payment-info">
+                      <span class="payment-title">Net Banking</span>
+                      <div class="bank-info">
+                        <span class="bank-icon">🏦</span>
+                        <span class="bank-text">All major banks supported</span>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+
+                <div class="payment-option">
+                  <input
+                    type="radio"
+                    id="cod"
+                    name="paymentMethod"
+                    value="cod"
+                  />
+                  <label for="cod" class="payment-label">
+                    <div class="payment-info">
+                      <span class="payment-title">Cash on Delivery</span>
+                      <div class="cod-info">
+                        <span class="cod-icon">💵</span>
+                        <span class="cod-text">Pay when you receive</span>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="checkout-section">
+              <h3>Order Summary</h3>
+              <div id="checkoutItems"></div>
+              <div class="order-total">
+                <div class="total-row">
+                  <span>Subtotal: ₹<span id="subtotal">0</span></span>
+                </div>
+                <div class="total-row">
+                  <span
+                    >Delivery Charges: ₹<span id="deliveryCharges"
+                      >50</span
+                    ></span
+                  >
+                </div>
+                <div
+                  class="total-row cod-charges"
+                  id="codChargesRow"
+                  style="display: none"
+                >
+                  <span>COD Charges: ₹<span id="codCharges">25</span></span>
+                </div>
+                <div class="total-row final-total">
+                  <strong>Total: ₹<span id="finalTotal">0</span></strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="payment-actions">
+              <button
+                type="button"
+                onclick="closeCheckout()"
+                class="btn-secondary"
+              >
+                Back to Cart
+              </button>
+              <button type="submit" class="btn-primary" id="paymentBtn">
+                Place Order
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -286,21 +625,30 @@
             planters. We deliver joy and beauty to every occasion.
           </p>
           <div class="social-links">
-            <a href="https://www.facebook.com" target="_blank" class="social-icon"
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              class="social-icon"
               ><iconify-icon
                 icon="mdi:facebook"
                 style="font-size: 20px"
               ></iconify-icon>
               Facebook</a
             >
-            <a href="https://www.instagram.com" target="_blank" class="social-icon"
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              class="social-icon"
               ><iconify-icon
                 icon="mdi:instagram"
                 style="font-size: 20px"
               ></iconify-icon>
               Instagram</a
             >
-            <a href="https://www.twitter.com" target="_blank" class="social-icon"
+            <a
+              href="https://www.twitter.com"
+              target="_blank"
+              class="social-icon"
               ><iconify-icon
                 icon="mdi:twitter"
                 style="font-size: 20px"
@@ -316,7 +664,6 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#flowers">Flowers</a></li>
             <li><a href="#pots">Flowerpots</a></li>
-            <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
@@ -325,7 +672,7 @@
           <h3>Contact Info</h3>
           <p>📍 Address<br />Shanivar Peth Pune - 411030</p>
           <p>📞 Phone<br />+91 9767917384</p>
-          <p>✉️ Email<br />vandanadongre1921@gmail.com</p>
+          <p>✉️ Email<br />bhartie8484@gmail.com</p>
         </div>
 
         <div class="footer-section">
