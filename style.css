@@ -5,6 +5,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #fff;
 }
@@ -147,6 +151,7 @@ body {
 
 .btn-primary,
 .btn-secondary {
+  display: inline-block;
   padding: 12px 30px;
   border: none;
   border-radius: 5px;
@@ -154,6 +159,8 @@ body {
   font-size: 16px;
   font-weight: 600;
   transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
 }
 
 .btn-primary {
@@ -2165,6 +2172,7 @@ body {
   text-align: center !important;
   width: 100% !important;
   box-sizing: border-box !important;
+  pointer-events: auto !important;
 }
 
 .flower-card .btn-add-cart,
@@ -2199,6 +2207,15 @@ body {
 .flowerpot-card > button:not(.btn-add-cart):not(.btn-order-now) {
   display: none !important;
   visibility: hidden !important;
+}
+
+/* Ensure hero buttons work properly */
+.hero-buttons a.btn-primary,
+.hero-buttons a.btn-secondary {
+  display: inline-block !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
 }
 /* CONTACT MOBILE IMAGE STYLES */
 .contact-mobile-image {

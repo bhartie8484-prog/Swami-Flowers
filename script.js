@@ -20,8 +20,12 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // ADD TO CART
 function addToCart(itemName) {
+  console.log("Add to cart clicked for:", itemName);
   const product = products[itemName];
-  if (!product) return;
+  if (!product) {
+    console.error("Product not found:", itemName);
+    return;
+  }
 
   const existingItem = cart.find((item) => item.name === itemName);
 
@@ -755,8 +759,10 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
 });
 // ORDER NOW FUNCTIONALITY
 function orderNow(itemName) {
+  console.log("Order now clicked for:", itemName);
   const product = products[itemName];
   if (!product) {
+    console.error("Product not found:", itemName);
     showNotification("Product not found!", "error");
     return;
   }
@@ -920,3 +926,32 @@ function closeQuickOrderModal() {
   document.body.style.overflow = "auto";
   quickOrderQuantity = 1; // Reset quantity
 }
+
+// TEST FUNCTION TO VERIFY BUTTONS WORK
+function testButtons() {
+  console.log("Testing button functionality...");
+
+  // Test addToCart function
+  try {
+    addToCart("Rose");
+    console.log("✅ addToCart function works");
+  } catch (error) {
+    console.error("❌ addToCart function error:", error);
+  }
+
+  // Test orderNow function
+  try {
+    orderNow("Rose");
+    console.log("✅ orderNow function works");
+  } catch (error) {
+    console.error("❌ orderNow function error:", error);
+  }
+}
+
+// Auto-test on page load
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(() => {
+    console.log("🧪 Running button tests...");
+    testButtons();
+  }, 1000);
+});

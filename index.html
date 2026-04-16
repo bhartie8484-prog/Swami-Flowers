@@ -729,6 +729,37 @@
             navMenu.classList.remove("active");
           }
         });
+
+        // Smooth scrolling for hero buttons
+        const heroButtons = document.querySelectorAll('.hero-buttons a');
+        heroButtons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+
+        // Test button functionality
+        console.log('Hero buttons found:', document.querySelectorAll('.hero-buttons a').length);
+        console.log('Add to cart buttons found:', document.querySelectorAll('.btn-add-cart').length);
+        console.log('Order now buttons found:', document.querySelectorAll('.btn-order-now').length);
+        
+        // Test if buttons are clickable
+        document.querySelectorAll('.btn-add-cart').forEach((btn, index) => {
+          console.log(`Add to cart button ${index + 1}:`, btn.onclick ? 'Has onclick' : 'No onclick');
+        });
+        
+        document.querySelectorAll('.btn-order-now').forEach((btn, index) => {
+          console.log(`Order now button ${index + 1}:`, btn.onclick ? 'Has onclick' : 'No onclick');
+        });
       });
     </script>
     <script src="script.js"></script>
