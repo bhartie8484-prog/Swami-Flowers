@@ -927,31 +927,48 @@ function closeQuickOrderModal() {
   quickOrderQuantity = 1; // Reset quantity
 }
 
-// TEST FUNCTION TO VERIFY BUTTONS WORK
+// TEST FUNCTION TO VERIFY BUTTONS WORK (Console logging only)
 function testButtons() {
   console.log("Testing button functionality...");
 
-  // Test addToCart function
+  // Test if functions exist without calling them
   try {
-    addToCart("Rose");
-    console.log("✅ addToCart function works");
+    if (typeof addToCart === "function") {
+      console.log("✅ addToCart function is defined");
+    } else {
+      console.error("❌ addToCart function not found");
+    }
   } catch (error) {
     console.error("❌ addToCart function error:", error);
   }
 
-  // Test orderNow function
+  // Test if orderNow function exists without calling it
   try {
-    orderNow("Rose");
-    console.log("✅ orderNow function works");
+    if (typeof orderNow === "function") {
+      console.log("✅ orderNow function is defined");
+    } else {
+      console.error("❌ orderNow function not found");
+    }
   } catch (error) {
     console.error("❌ orderNow function error:", error);
   }
+
+  // Test if cart functions exist
+  if (typeof openCart === "function") {
+    console.log("✅ openCart function is defined");
+  }
+
+  if (typeof updateCartCount === "function") {
+    console.log("✅ updateCartCount function is defined");
+  }
+
+  console.log("🎯 All function tests completed (no actions triggered)");
 }
 
-// Auto-test on page load
+// Auto-test on page load (safe version - no modals will open)
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => {
-    console.log("🧪 Running button tests...");
+    console.log("🧪 Running safe button tests...");
     testButtons();
   }, 1000);
 });

@@ -2217,37 +2217,6 @@ body {
   cursor: pointer !important;
   pointer-events: auto !important;
 }
-/* CONTACT MOBILE IMAGE STYLES */
-.contact-mobile-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #fff5f7, #ffe4f5);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  border: 2px solid #ff69b4;
-}
-
-.contact-mobile-image:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(255, 105, 180, 0.2);
-}
-
-.contact-mobile-image img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  object-fit: contain;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
-
-.contact-mobile-image:hover img {
-  transform: scale(1.05);
-}
-
 /* UPDATE CONTACT CONTAINER FOR TWO COLUMNS */
 .contact-container {
   display: grid;
@@ -2767,6 +2736,14 @@ body {
     grid-column: 1 / -1;
     order: -1;
   }
+
+  .contact-main-content {
+    padding: 60px 30px;
+  }
+
+  .contact-section-header {
+    margin-bottom: 50px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2774,8 +2751,17 @@ body {
     padding: 40px 20px;
   }
 
+  .contact-main-content {
+    padding: 40px 20px;
+  }
+
+  .contact-section-header {
+    margin-bottom: 40px;
+  }
+
   .contact-main-title {
     font-size: 32px;
+    margin-bottom: 10px;
   }
 
   .contact-subtitle {
@@ -2787,16 +2773,131 @@ body {
     gap: 25px;
   }
 
+  /* Reorder for mobile: Visual card first, then form, then info */
+  .visual-card {
+    order: 1;
+  }
+
+  .form-card {
+    order: 2;
+  }
+
+  .info-card {
+    order: 3;
+  }
+
   .contact-card {
-    padding: 30px;
+    padding: 25px;
+    border-radius: 15px;
+  }
+
+  .card-header h3 {
+    font-size: 20px;
+  }
+
+  .card-header p {
+    font-size: 14px;
   }
 
   .visual-content {
-    min-height: 300px;
+    min-height: 250px;
+  }
+
+  .image-stack {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contact-main-image,
+  .contact-mobile-image {
+    position: relative;
+    transform: none;
+    max-width: 90%;
+    margin: 5px 0;
+  }
+
+  /* Hide one image on mobile to avoid duplication */
+  .contact-mobile-image {
+    display: none;
+  }
+
+  .contact-main-image {
+    display: block;
+    max-width: 100%;
+  }
+
+  .visual-overlay {
+    position: relative;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .visual-overlay h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .visual-overlay p {
+    font-size: 14px;
+    margin-bottom: 15px;
   }
 
   .quick-actions {
     flex-direction: column;
+    gap: 8px;
+  }
+
+  .quick-action-btn {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  /* Enhanced form responsiveness */
+  .input-wrapper input,
+  .input-wrapper textarea {
+    padding: 12px 45px 12px 15px;
+    font-size: 14px;
+  }
+
+  .input-wrapper label {
+    font-size: 14px;
+  }
+
+  .input-icon {
+    right: 12px;
+    font-size: 16px;
+  }
+
+  /* Contact info improvements */
+  .info-item {
+    padding: 15px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .info-content h4 {
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+
+  .info-content p {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .contact-action-btn {
+    padding: 6px 12px;
+    font-size: 11px;
   }
 }
 
@@ -2805,23 +2906,147 @@ body {
     padding: 30px 15px;
   }
 
+  .contact-main-content {
+    padding: 30px 15px;
+  }
+
+  .contact-section-header {
+    margin-bottom: 30px;
+  }
+
   .contact-main-title {
-    font-size: 28px;
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .contact-subtitle {
+    font-size: 14px;
+  }
+
+  .contact-grid {
+    gap: 20px;
   }
 
   .contact-card {
     padding: 20px;
+    border-radius: 12px;
+  }
+
+  .card-header h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .card-header p {
+    font-size: 13px;
+  }
+
+  /* Form improvements for small screens */
+  .enhanced-contact-form {
+    gap: 20px;
   }
 
   .input-wrapper input,
   .input-wrapper textarea {
-    padding: 12px 40px 12px 15px;
+    padding: 10px 40px 10px 12px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  .input-wrapper label {
+    font-size: 13px;
+    left: 12px;
+  }
+
+  .input-icon {
+    right: 10px;
     font-size: 14px;
   }
 
   .enhanced-submit-btn {
-    padding: 15px 25px;
-    font-size: 14px;
+    padding: 12px 20px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  /* Visual card improvements */
+  .visual-content {
+    min-height: 200px;
+  }
+
+  .image-stack {
+    padding: 10px;
+  }
+
+  .contact-main-image {
+    max-width: 85%;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .contact-mobile-image {
+    display: none;
+  }
+
+  .visual-overlay {
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  .visual-overlay h4 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .visual-overlay p {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  .quick-actions {
+    gap: 6px;
+  }
+
+  .quick-action-btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    border-radius: 15px;
+  }
+
+  /* Contact info for small screens */
+  .info-item {
+    padding: 12px;
+    border-radius: 8px;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .info-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .info-content {
+    text-align: center;
+  }
+
+  .info-content h4 {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .info-content p {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .contact-action-btn {
+    padding: 5px 10px;
+    font-size: 10px;
+    border-radius: 12px;
   }
 }
 /* EMAIL AND PHONE LINK STYLES */
@@ -2852,4 +3077,290 @@ body {
 .footer-section a[href^="mailto:"]:hover,
 .footer-section a[href^="tel:"]:hover {
   text-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
+}
+/* EXTRA SMALL MOBILE DEVICES (320px and below) */
+@media (max-width: 320px) {
+  .enhanced-contact {
+    padding: 20px 10px;
+  }
+
+  .contact-main-content {
+    padding: 20px 10px;
+  }
+
+  .contact-main-title {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .contact-subtitle {
+    font-size: 12px;
+  }
+
+  .contact-card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .card-header h3 {
+    font-size: 16px;
+  }
+
+  .input-wrapper input,
+  .input-wrapper textarea {
+    padding: 8px 35px 8px 10px;
+    font-size: 12px;
+  }
+
+  .enhanced-submit-btn {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+
+  .visual-overlay h4 {
+    font-size: 14px;
+  }
+
+  .visual-overlay p {
+    font-size: 11px;
+  }
+
+  .info-content h4 {
+    font-size: 14px;
+  }
+
+  .info-content p {
+    font-size: 11px;
+  }
+}
+
+/* LANDSCAPE MOBILE ORIENTATION */
+@media (max-width: 768px) and (orientation: landscape) {
+  .enhanced-contact {
+    padding: 30px 20px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .visual-card {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+
+  .visual-content {
+    min-height: 200px;
+  }
+
+  .contact-card {
+    padding: 20px;
+  }
+}
+
+/* TOUCH DEVICE IMPROVEMENTS */
+@media (hover: none) and (pointer: coarse) {
+  .contact-action-btn,
+  .quick-action-btn,
+  .enhanced-submit-btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 16px;
+  }
+
+  .input-wrapper input,
+  .input-wrapper textarea {
+    min-height: 44px;
+  }
+
+  .info-item {
+    padding: 16px;
+  }
+
+  .contact-card:hover {
+    transform: none;
+  }
+
+  .info-item:hover {
+    transform: none;
+    background: #f8f9fa;
+  }
+}
+/* FRESH FLOWERS DELIVERED SECTION MOBILE IMPROVEMENTS */
+@media (max-width: 768px) {
+  .visual-overlay {
+    text-align: center;
+    padding: 20px 15px;
+  }
+
+  .visual-overlay h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .visual-overlay p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    opacity: 0.95;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .visual-overlay {
+    padding: 15px 12px;
+    border-radius: 8px;
+  }
+
+  .visual-overlay h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .visual-overlay p {
+    font-size: 12px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .quick-actions {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .quick-action-btn {
+    width: 100%;
+    max-width: 200px;
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    border-radius: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .visual-overlay {
+    padding: 12px 10px;
+  }
+
+  .visual-overlay h4 {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .visual-overlay p {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  .quick-action-btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    max-width: 180px;
+  }
+}
+/* MOBILE TYPOGRAPHY AND SPACING IMPROVEMENTS */
+@media (max-width: 768px) {
+  /* Better text readability on mobile */
+  .contact-main-title {
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .contact-subtitle {
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  /* Card spacing improvements */
+  .contact-card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Form field improvements */
+  .enhanced-contact-form .input-group {
+    margin-bottom: 20px;
+  }
+
+  /* Better button spacing */
+  .enhanced-submit-btn {
+    margin-top: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Contact info spacing */
+  .contact-info-list {
+    gap: 20px;
+  }
+
+  .info-item {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Tighter spacing for small screens */
+  .contact-section-header {
+    padding: 0 5px;
+  }
+
+  .contact-main-title {
+    margin-bottom: 8px;
+  }
+
+  .contact-subtitle {
+    margin-bottom: 25px;
+    padding: 0 5px;
+  }
+
+  .contact-card {
+    margin-bottom: 15px;
+  }
+
+  .enhanced-contact-form .input-group {
+    margin-bottom: 18px;
+  }
+
+  .contact-info-list {
+    gap: 15px;
+  }
+}
+
+/* ACCESSIBILITY IMPROVEMENTS FOR MOBILE */
+@media (max-width: 768px) {
+  /* Larger touch targets */
+  .contact-action-btn,
+  .quick-action-btn {
+    min-height: 40px;
+    padding: 10px 15px;
+    font-weight: 500;
+  }
+
+  /* Better focus states for mobile */
+  .input-wrapper input:focus,
+  .input-wrapper textarea:focus {
+    border-width: 3px;
+    box-shadow: 0 0 0 2px rgba(255, 105, 180, 0.2);
+  }
+
+  /* Improved button states */
+  .enhanced-submit-btn:active {
+    transform: scale(0.98);
+  }
+
+  .contact-action-btn:active,
+  .quick-action-btn:active {
+    transform: scale(0.95);
+  }
 }
