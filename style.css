@@ -2435,15 +2435,6 @@ body {
 
 /* MAIN CONTENT */
 .contact-main-content {
-  position: relative;
-  z-index: 2;
-}
-}
-
-
-
-/* MAIN CONTENT */
-.contact-main-content {
   padding: 80px 40px;
   position: relative;
   z-index: 2;
@@ -2748,8 +2739,6 @@ body {
   transform: translateY(-2px);
 }
 
-
-
 /* RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
   .contact-grid {
@@ -2761,8 +2750,6 @@ body {
     grid-column: 1 / -1;
     order: -1;
   }
-
-
 }
 
 @media (max-width: 768px) {
@@ -2794,8 +2781,6 @@ body {
   .quick-actions {
     flex-direction: column;
   }
-
-
 }
 
 @media (max-width: 480px) {
@@ -2821,6 +2806,33 @@ body {
     padding: 15px 25px;
     font-size: 14px;
   }
+}
+/* EMAIL AND PHONE LINK STYLES */
+.info-content a,
+.footer-section a[href^="mailto:"],
+.footer-section a[href^="tel:"] {
+  color: #ff69b4;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
 
+.info-content a:hover,
+.footer-section a[href^="mailto:"]:hover,
+.footer-section a[href^="tel:"]:hover {
+  color: #ff1493;
+  border-bottom-color: #ff1493;
+  transform: translateY(-1px);
+}
 
+.footer-section a[href^="mailto:"],
+.footer-section a[href^="tel:"] {
+  display: inline-block;
+  padding: 2px 0;
+}
+
+.footer-section a[href^="mailto:"]:hover,
+.footer-section a[href^="tel:"]:hover {
+  text-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
 }
