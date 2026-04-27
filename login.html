@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Swami Flowers</title>
+    <link rel="stylesheet" href="login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="auth-page">
+      <section class="auth-hero">
+        <a class="brand-link" href="index.html">Swami Flowers</a>
+        <div class="hero-copy">
+          <p class="eyebrow">Fresh blooms, quicker checkout</p>
+          <h1>Login for full store access</h1>
+          <p class="hero-text">
+            Sign in to manage your cart, place orders, and open your account in
+            one step.
+          </p>
+        </div>
+        <div class="access-panel">
+          <h2>What opens after login</h2>
+          <ul>
+            <li>Cart and checkout access</li>
+            <li>Saved account details</li>
+            <li>Quick order flow for every product</li>
+            <li>Admin portal for store management</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="auth-shell">
+        <div class="auth-card">
+          <div class="auth-tabs">
+            <button class="auth-tab active" data-tab="login">Login</button>
+            <button class="auth-tab" data-tab="signup">Sign Up</button>
+            <button class="auth-tab" data-tab="admin">Admin</button>
+          </div>
+
+          <div class="auth-panel active" id="loginPanel">
+            <h2>Welcome back</h2>
+            <p>Use your account to continue shopping.</p>
+            <form id="loginPageForm">
+              <label>
+                <span>Email</span>
+                <input type="email" id="loginPageEmail" required />
+              </label>
+              <label>
+                <span>Password</span>
+                <input type="password" id="loginPagePassword" required />
+              </label>
+              <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <div class="demo-note">
+              Demo user: `demo@swamiflowers.com` / `demo123`
+            </div>
+          </div>
+
+          <div class="auth-panel" id="signupPanel">
+            <h2>Create account</h2>
+            <p>Make a customer account for orders and account access.</p>
+            <form id="signupPageForm">
+              <label>
+                <span>Full Name</span>
+                <input type="text" id="signupPageName" required />
+              </label>
+              <label>
+                <span>Phone</span>
+                <input type="tel" id="signupPagePhone" required />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" id="signupPageEmail" required />
+              </label>
+              <label>
+                <span>Password</span>
+                <input
+                  type="password"
+                  id="signupPagePassword"
+                  minlength="6"
+                  required
+                />
+              </label>
+              <label>
+                <span>Confirm Password</span>
+                <input
+                  type="password"
+                  id="signupPageConfirmPassword"
+                  minlength="6"
+                  required
+                />
+              </label>
+              <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+          </div>
+
+          <div class="auth-panel" id="adminPanel">
+            <h2>Admin portal</h2>
+            <p>Restricted area for store administration.</p>
+            <form id="adminPageForm">
+              <label>
+                <span>Admin Email</span>
+                <input type="email" id="adminPageEmail" required />
+              </label>
+              <label>
+                <span>Admin Password</span>
+                <input type="password" id="adminPagePassword" required />
+              </label>
+              <button type="submit" class="submit-btn admin-submit">
+                Login as Admin
+              </button>
+            </form>
+            <div class="demo-note">
+              Demo admin: `admin@swamiflowers.com` / `admin123`
+            </div>
+          </div>
+
+          <p class="back-link"><a href="index.html">Return to store</a></p>
+        </div>
+      </section>
+    </main>
+
+    <script src="login.js"></script>
+  </body>
+</html>

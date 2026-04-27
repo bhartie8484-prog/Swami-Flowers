@@ -36,6 +36,9 @@
           <li><a href="#products">Products</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li class="auth-buttons" id="authButtons">
+            <a href="login.html" class="login-link">Login</a>
+          </li>
           <li>
             <a href="#" onclick="openCart()" class="cart-link"
               >&#128722; Cart (<span id="cartCount">0</span>)</a
@@ -175,13 +178,19 @@
             src="images/BUBLIX Garlic Vine Lavender live Flower Plant.webp"
             alt="Garlic Vine Lavender"
           />
-          <h3>Garlic Vine Lavender Climbing</h3>
+          <h3>Garlic Vine Lavender</h3>
           <p>&#8377;290</p>
           <div class="card-buttons">
-            <button onclick="addToCart('Garlic Vine Lavender')" class="btn-add-cart">
+            <button
+              onclick="addToCart('Garlic Vine Lavender')"
+              class="btn-add-cart"
+            >
               Add to Cart
             </button>
-            <button onclick="orderNow('Garlic Vine Lavender')" class="btn-order-now">
+            <button
+              onclick="orderNow('Garlic Vine Lavender')"
+              class="btn-order-now"
+            >
               Order Now
             </button>
           </div>
@@ -192,13 +201,19 @@
             src="images/Creeping, Climbing Rose (Red) - Plant.webp"
             alt="Climbing Rose Red"
           />
-          <h3> Red Rose Climbing</h3>
+          <h3>Red Rose</h3>
           <p>&#8377;310</p>
           <div class="card-buttons">
-            <button onclick="addToCart('Climbing Rose Red')" class="btn-add-cart">
+            <button
+              onclick="addToCart('Climbing Rose Red')"
+              class="btn-add-cart"
+            >
               Add to Cart
             </button>
-            <button onclick="orderNow('Climbing Rose Red')" class="btn-order-now">
+            <button
+              onclick="orderNow('Climbing Rose Red')"
+              class="btn-order-now"
+            >
               Order Now
             </button>
           </div>
@@ -209,13 +224,19 @@
             src="images/Flame Vine Orange Trumpet Vine Creepers & Climbers Flower Plant.webp"
             alt="Flame Vine Orange"
           />
-          <h3>Flame Vine Orange Climbing</h3>
+          <h3>Flame Vine Orange</h3>
           <p>&#8377;280</p>
           <div class="card-buttons">
-            <button onclick="addToCart('Flame Vine Orange')" class="btn-add-cart">
+            <button
+              onclick="addToCart('Flame Vine Orange')"
+              class="btn-add-cart"
+            >
               Add to Cart
             </button>
-            <button onclick="orderNow('Flame Vine Orange')" class="btn-order-now">
+            <button
+              onclick="orderNow('Flame Vine Orange')"
+              class="btn-order-now"
+            >
               Order Now
             </button>
           </div>
@@ -226,7 +247,7 @@
             src="images/Golden Cascade Creeper Climber Flowering Live Plant.webp"
             alt="Golden Cascade"
           />
-          <h3>Golden Cascade Climbing</h3>
+          <h3>Golden Cascade</h3>
           <p>&#8377;300</p>
           <div class="card-buttons">
             <button onclick="addToCart('Golden Cascade')" class="btn-add-cart">
@@ -239,17 +260,20 @@
         </div>
 
         <div class="flower-card">
-          <img
-            src="images/Purple Bougainvillea Fence Climber Plant.jpg"
-            alt="Purple Bougainvillea"
-          />
-          <h3>Purple Climbing</h3>
+          <img src="images/calico.jpg" alt="Purple Bougainvillea" />
+          <h3>calico</h3>
           <p>&#8377;340</p>
           <div class="card-buttons">
-            <button onclick="addToCart('Purple Bougainvillea Climbing')" class="btn-add-cart">
+            <button
+              onclick="addToCart('Purple Bougainvillea Climbing')"
+              class="btn-add-cart"
+            >
               Add to Cart
             </button>
-            <button onclick="orderNow('Purple Bougainvillea Climbing')" class="btn-order-now">
+            <button
+              onclick="orderNow('Purple Bougainvillea Climbing')"
+              class="btn-order-now"
+            >
               Order Now
             </button>
           </div>
@@ -260,18 +284,23 @@
             src="images/Madhumalati Flowering Vine Rangoon Creeper Double Petal Creeper Plan.jpg"
             alt="Madhumalati Rangoon Creeper"
           />
-          <h3>Madhumalati Climbing</h3>
+          <h3>Madhumalati</h3>
           <p>&#8377;360</p>
           <div class="card-buttons">
-            <button onclick="addToCart('Madhumalati Rangoon Creeper Climbing')" class="btn-add-cart">
+            <button
+              onclick="addToCart('Madhumalati Rangoon Creeper Climbing')"
+              class="btn-add-cart"
+            >
               Add to Cart
             </button>
-            <button onclick="orderNow('Madhumalati Rangoon Creeper Climbing')" class="btn-order-now">
+            <button
+              onclick="orderNow('Madhumalati Rangoon Creeper Climbing')"
+              class="btn-order-now"
+            >
               Order Now
             </button>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -362,7 +391,10 @@
         </div>
 
         <div class="flowerpot-card">
-          <img src="images/pots/persillade-plant-pot-dark-grey__0439713_pe592235_s5.avif" alt="Wooden Pot" />
+          <img
+            src="images/pots/persillade-plant-pot-dark-grey__0439713_pe592235_s5.avif"
+            alt="Wooden Pot"
+          />
           <h3>Wooden Planter</h3>
           <p>&#8377;380</p>
           <div class="card-buttons">
@@ -520,6 +552,113 @@
         </div>
       </div>
     </section>
+
+    <!-- LOGIN/SIGNUP MODAL -->
+    <div id="authModal" class="modal">
+      <div class="modal-content auth-modal-content">
+        <div class="modal-header auth-header">
+          <h2 id="authModalTitle">Create Account</h2>
+          <span class="close" onclick="closeAuthModal()">&times;</span>
+        </div>
+        <div class="modal-body auth-body">
+          <div class="welcome-text">
+            <p>Welcome to Swami Flowers! Please sign up to continue.</p>
+          </div>
+          <div class="auth-tabs">
+            <button class="auth-tab" onclick="switchAuthTab('login')">Login</button>
+            <button class="auth-tab active" onclick="switchAuthTab('signup')">Sign Up</button>
+          </div>
+          
+          <!-- Login Form -->
+          <form id="loginForm" class="auth-form">
+            <div class="form-group">
+              <input type="email" id="loginEmail" placeholder="Email Address" required />
+            </div>
+            <div class="form-group password-group">
+              <input type="password" id="loginPassword" placeholder="Password" required />
+              <span class="password-toggle" onclick="togglePassword('loginPassword')">&#128065;</span>
+            </div>
+            <button type="submit" class="auth-submit-btn" onclick="handleLogin(event)">Login</button>
+            <p class="auth-switch">Don't have an account? <a href="#" onclick="switchAuthTab('signup')">Sign Up</a></p>
+          </form>
+          
+          <!-- Signup Form -->
+          <form id="signupForm" class="auth-form" style="display: none;">
+            <div class="form-group">
+              <input type="text" id="signupName" placeholder="Full Name" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" id="signupPhone" placeholder="Phone Number" required />
+            </div>
+            <div class="form-group">
+              <input type="email" id="signupEmail" placeholder="Email Address" required />
+            </div>
+            <div class="form-group password-group">
+              <input type="password" id="signupPassword" placeholder="Create Password" required minlength="6" />
+              <span class="password-toggle" onclick="togglePassword('signupPassword')">&#128065;</span>
+            </div>
+            <div class="form-group password-group">
+              <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required />
+              <span class="password-toggle" onclick="togglePassword('signupConfirmPassword')">&#128065;</span>
+            </div>
+            <button type="submit" class="auth-submit-btn" onclick="handleSignup(event)">Create Account</button>
+            <p class="auth-switch">Already have an account? <a href="#" onclick="switchAuthTab('login')">Login</a></p>
+          </form>
+          
+          <!-- Admin Login Option -->
+          <div class="admin-section">
+            <a href="#" onclick="openAdminLogin()" class="admin-link">Admin Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="adminAuthModal" class="modal">
+      <div class="modal-content auth-modal-content small-modal">
+        <div class="modal-header auth-header admin-header">
+          <h2>Admin Portal</h2>
+          <span class="close" onclick="closeAdminAuthModal()">&times;</span>
+        </div>
+        <div class="modal-body auth-body">
+          <form id="adminLoginForm" class="auth-form">
+            <div class="form-group">
+              <input type="email" id="adminEmail" placeholder="Admin Email" required />
+            </div>
+            <div class="form-group password-group">
+              <input type="password" id="adminPassword" placeholder="Admin Password" required />
+              <span class="password-toggle" onclick="togglePassword('adminPassword')">&#128065;</span>
+            </div>
+            <button type="submit" class="auth-submit-btn admin-btn" onclick="handleAdminLogin(event)">Login as Admin</button>
+            <p class="auth-switch"><a href="#" onclick="closeAdminAuthModal(); openAuthModal()">Back to User Login</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- USER ACCOUNT MODAL -->
+    <div id="accountModal" class="modal">
+      <div class="modal-content auth-modal-content">
+        <div class="modal-header auth-header">
+          <h2>My Account</h2>
+          <span class="close" onclick="closeAccountModal()">&times;</span>
+        </div>
+        <div class="modal-body auth-body">
+          <div class="account-info">
+            <div class="account-avatar">&#128100;</div>
+            <h3 id="accountName"></h3>
+            <p id="accountEmail"></p>
+            <p id="accountPhone"></p>
+          </div>
+          <div class="account-menu">
+            <button class="account-menu-item" onclick="showOrderHistory()">&#128722; My Orders</button>
+            <button class="account-menu-item" onclick="showSavedAddresses()">&#128205; Saved Addresses</button>
+            <button class="account-menu-item" onclick="showWishlist()">&#10084; Wishlist</button>
+            <button class="account-menu-item" onclick="logout()">&#128682; Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- CART MODAL -->
     <div id="cartModal" class="modal">
@@ -696,7 +835,9 @@
                   id="codChargesRow"
                   style="display: none"
                 >
-                  <span>COD Charges: &#8377;<span id="codCharges">25</span></span>
+                  <span
+                    >COD Charges: &#8377;<span id="codCharges">25</span></span
+                  >
                 </div>
                 <div class="total-row final-total">
                   <strong>Total: &#8377;<span id="finalTotal">0</span></strong>
@@ -777,7 +918,9 @@
         <div class="footer-section">
           <h3>Contact Info</h3>
           <p>&#128205; Address<br />Shanivar Peth Pune - 411030</p>
-          <p>&#128222; Phone<br /><a href="tel:+919767917384">+91 9767917384</a></p>
+          <p>
+            &#128222; Phone<br /><a href="tel:+919767917384">+91 9767917384</a>
+          </p>
           <p>
             &#9993;&#65039; Email<br /><a href="mailto:bhartie8484@gmail.com"
               >bhartie8484@gmail.com</a
@@ -833,38 +976,52 @@
         });
 
         // Smooth scrolling for hero buttons
-        const heroButtons = document.querySelectorAll('.hero-buttons a');
-        heroButtons.forEach(button => {
-          button.addEventListener('click', function(e) {
+        const heroButtons = document.querySelectorAll(".hero-buttons a");
+        heroButtons.forEach((button) => {
+          button.addEventListener("click", function (e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href');
+            const targetId = this.getAttribute("href");
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
               targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+                behavior: "smooth",
+                block: "start",
               });
             }
           });
         });
 
         // Test button functionality
-        console.log('Hero buttons found:', document.querySelectorAll('.hero-buttons a').length);
-        console.log('Add to cart buttons found:', document.querySelectorAll('.btn-add-cart').length);
-        console.log('Order now buttons found:', document.querySelectorAll('.btn-order-now').length);
-        
+        console.log(
+          "Hero buttons found:",
+          document.querySelectorAll(".hero-buttons a").length,
+        );
+        console.log(
+          "Add to cart buttons found:",
+          document.querySelectorAll(".btn-add-cart").length,
+        );
+        console.log(
+          "Order now buttons found:",
+          document.querySelectorAll(".btn-order-now").length,
+        );
+
         // Test if buttons are clickable
-        document.querySelectorAll('.btn-add-cart').forEach((btn, index) => {
-          console.log(`Add to cart button ${index + 1}:`, btn.onclick ? 'Has onclick' : 'No onclick');
+        document.querySelectorAll(".btn-add-cart").forEach((btn, index) => {
+          console.log(
+            `Add to cart button ${index + 1}:`,
+            btn.onclick ? "Has onclick" : "No onclick",
+          );
         });
-        
-        document.querySelectorAll('.btn-order-now').forEach((btn, index) => {
-          console.log(`Order now button ${index + 1}:`, btn.onclick ? 'Has onclick' : 'No onclick');
+
+        document.querySelectorAll(".btn-order-now").forEach((btn, index) => {
+          console.log(
+            `Order now button ${index + 1}:`,
+            btn.onclick ? "Has onclick" : "No onclick",
+          );
         });
       });
     </script>
     <script src="script.js"></script>
   </body>
 </html>
-

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Swami Flowers</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #ffe4f5 0%, #fff5f7 100%);
+        min-height: 100vh;
+      }
+      .admin-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+      .admin-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .admin-header h1 {
+        color: #ff69b4;
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+      .admin-header p {
+        color: #666;
+      }
+      .admin-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+      .stat-card {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      .stat-card h3 {
+        color: #ff69b4;
+        font-size: 32px;
+        margin-bottom: 5px;
+      }
+      .stat-card p {
+        color: #666;
+        font-size: 14px;
+      }
+      .admin-section {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      .admin-section h2 {
+        color: #ff69b4;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #ff69b4;
+      }
+      .user-list {
+        list-style: none;
+      }
+      .user-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+      }
+      .user-item:last-child {
+        border-bottom: none;
+      }
+      .back-btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: #ff69b4;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      @media (max-width: 768px) {
+        .admin-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-container">
+      <a href="index.html" class="back-btn">Back to Store</a>
+      <div class="admin-header">
+        <h1>Admin Panel</h1>
+        <p>Manage your Swami Flowers store</p>
+      </div>
+      <div class="admin-stats">
+        <div class="stat-card">
+          <h3>12</h3>
+          <p>Total Products</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="totalUsers">0</h3>
+          <p>Registered Users</p>
+        </div>
+        <div class="stat-card">
+          <h3>0</h3>
+          <p>Total Orders</p>
+        </div>
+        <div class="stat-card">
+          <h3>&#8377;0</h3>
+          <p>Total Revenue</p>
+        </div>
+      </div>
+      <div class="admin-section">
+        <h2>Registered Users</h2>
+        <ul class="user-list" id="userList">
+          <li class="user-item">
+            <p>No users registered yet</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        document.getElementById("totalUsers").textContent = users.length;
+        
+        const userList = document.getElementById("userList");
+        if (users.length > 0) {
+          userList.innerHTML = users
+            .map(
+              (user, index) => `
+            <li class="user-item">
+              <div>
+                <strong>${user.name}</strong>
+                <p style="margin: 5px 0 0 0; font-size: 12px; color: #666;">${user.email}</p>
+              </div>
+              <span style="color: #ff69b4;">${user.phone}</span>
+            </li>
+          `
+            )
+            .join("");
+        }
+      });
+    </script>
+  </body>
+</html>

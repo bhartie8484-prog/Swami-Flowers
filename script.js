@@ -15,6 +15,67 @@ const products = {
   "Wooden Planter": { name: "Wooden Planter", price: 380 },
 };
 
+const USERS_KEY = "swamiFlowersUsers";
+const CURRENT_USER_KEY = "swamiFlowersSession";
+
+// User management with localStorage
+let users =
+  JSON.parse(localStorage.getItem(USERS_KEY)) ||
+  JSON.parse(localStorage.getItem("users")) ||
+  [];
+let currentUser =
+  JSON.parse(localStorage.getItem(CURRENT_USER_KEY)) ||
+  JSON.parse(localStorage.getItem("currentUser")) ||
+  null;
+
+function persistUsers() {
+  localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
+function persistCurrentUser() {
+  if (currentUser) {
+    localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  } else {
+    localStorage.removeItem(CURRENT_USER_KEY);
+    localStorage.removeItem("currentUser");
+  }
+}
+
+function seedDefaultUsers() {
+  if (users.length > 0) return;
+
+  users = [
+    {
+      name: "Demo Customer",
+      phone: "9876543210",
+      email: "demo@swamiflowers.com",
+      password: "demo123",
+      role: "customer",
+    },
+    {
+      name: "Store Admin",
+      phone: "9767917384",
+      email: "admin@swamiflowers.com",
+      password: "admin123",
+      role: "admin",
+    },
+  ];
+
+  persistUsers();
+}
+
+function requireLogin(message) {
+  if (currentUser) return true;
+
+  showNotification(message || "Please login to continue.", "error");
+  setTimeout(() => {
+    window.location.href = "login.html";
+  }, 700);
+  return false;
+}
+
 // CART FUNCTIONALITY
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -730,12 +791,24 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("click", function (event) {
     const cartModal = document.getElementById("cartModal");
     const checkoutModal = document.getElementById("checkoutModal");
+    const authModal = document.getElementById("authModal");
+    const adminAuthModal = document.getElementById("adminAuthModal");
+    const accountModal = document.getElementById("accountModal");
 
     if (event.target === cartModal) {
       closeCart();
     }
     if (event.target === checkoutModal) {
       closeCheckout();
+    }
+    if (event.target === authModal) {
+      closeAuthModal();
+    }
+    if (event.target === adminAuthModal) {
+      closeAdminAuthModal();
+    }
+    if (event.target === accountModal) {
+      closeAccountModal();
     }
   });
 });
@@ -970,5 +1043,199 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => {
     console.log("🧪 Running safe button tests...");
     testButtons();
+    updateAuthButtons();
+    
+    // Show signup form by default for new users
+    const loginForm = document.getElementById("loginForm");
+    const signupForm = document.getElementById("signupForm");
+    if (loginForm && signupForm) {
+      loginForm.style.display = "none";
+      signupForm.style.display = "flex";
+    }
   }, 1000);
 });
+
+// AUTH FUNCTIONS
+function openLoginModal() {
+  document.getElementById("authModal").style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+
+function closeAuthModal() {
+  document.getElementById("authModal").style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+function openAuthModal() {
+  document.getElementById("authModal").style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+
+function switchAuthTab(tab) {
+  const loginForm = document.getElementById("loginForm");
+  const signupForm = document.getElementById("signupForm");
+  const loginTab = document.querySelector(".auth-tab:first-child");
+  const signupTab = document.querySelector(".auth-tab:last-child");
+  const modalTitle = document.getElementById("authModalTitle");
+  const welcomeText = document.querySelector(".welcome-text");
+
+  if (tab === "login") {
+    loginForm.style.display = "flex";
+    signupForm.style.display = "none";
+    loginTab.classList.add("active");
+    signupTab.classList.remove("active");
+    modalTitle.textContent = "Login";
+    if (welcomeText) welcomeText.style.display = "none";
+  } else {
+    loginForm.style.display = "none";
+    signupForm.style.display = "flex";
+    loginTab.classList.remove("active");
+    signupTab.classList.add("active");
+    modalTitle.textContent = "Create Account";
+    if (welcomeText) welcomeText.style.display = "block";
+  }
+}
+
+function togglePassword(inputId) {
+  const input = document.getElementById(inputId);
+  if (input.type === "password") {
+    input.type = "text";
+  } else {
+    input.type = "password";
+  }
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  const user = users.find(u => u.email === email && u.password === password);
+  
+  if (user) {
+    currentUser = user;
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    closeAuthModal();
+    updateAuthButtons();
+    showNotification("Welcome back, " + user.name + "!", "success");
+    document.getElementById("loginForm").reset();
+  } else {
+    showNotification("Invalid email or password", "error");
+  }
+}
+
+function handleSignup(e) {
+  e.preventDefault();
+  const name = document.getElementById("signupName").value;
+  const phone = document.getElementById("signupPhone").value;
+  const email = document.getElementById("signupEmail").value;
+  const password = document.getElementById("signupPassword").value;
+  const confirmPassword = document.getElementById("signupConfirmPassword").value;
+
+  if (users.find(u => u.email === email)) {
+    showNotification("Email already registered", "error");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    showNotification("Passwords do not match", "error");
+    return;
+  }
+
+  if (password.length < 6) {
+    showNotification("Password must be at least 6 characters", "error");
+    return;
+  }
+
+  const newUser = { name, phone, email, password };
+  users.push(newUser);
+  localStorage.setItem("users", JSON.stringify(users));
+  
+  currentUser = newUser;
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+  closeAuthModal();
+  updateAuthButtons();
+  showNotification("Account created successfully!", "success");
+  document.getElementById("signupForm").reset();
+}
+
+function updateAuthButtons() {
+  const authButtons = document.getElementById("authButtons");
+  
+  if (currentUser) {
+    authButtons.innerHTML = `
+      <div class="user-logged-in">
+        <button class="user-avatar-btn" onclick="openAccountModal()">&#128100;</button>
+      </div>
+    `;
+  } else {
+    authButtons.innerHTML = `
+      <a href="#" onclick="openLoginModal()" class="login-link">Login</a>
+    `;
+  }
+}
+
+function openAccountModal() {
+  if (!currentUser) {
+    openLoginModal();
+    return;
+  }
+  document.getElementById("accountName").textContent = currentUser.name;
+  document.getElementById("accountEmail").textContent = currentUser.email;
+  document.getElementById("accountPhone").textContent = currentUser.phone;
+  document.getElementById("accountModal").style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+
+function closeAccountModal() {
+  document.getElementById("accountModal").style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+function logout() {
+  currentUser = null;
+  localStorage.removeItem("currentUser");
+  closeAccountModal();
+  updateAuthButtons();
+  showNotification("Logged out successfully", "success");
+}
+
+function showOrderHistory() {
+  showNotification("Order history feature coming soon!", "success");
+}
+
+function showSavedAddresses() {
+  showNotification("Saved addresses feature coming soon!", "success");
+}
+
+function showWishlist() {
+  showNotification("Wishlist feature coming soon!", "success");
+}
+
+// Admin functions
+function openAdminLogin() {
+  closeAuthModal();
+  document.getElementById("adminAuthModal").style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+
+function closeAdminAuthModal() {
+  document.getElementById("adminAuthModal").style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+function handleAdminLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById("adminEmail").value;
+  const password = document.getElementById("adminPassword").value;
+
+  if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
+    closeAdminAuthModal();
+    showNotification("Welcome Admin!", "success");
+    document.getElementById("adminLoginForm").reset();
+    // Redirect to admin panel or show admin features
+    window.location.href = "admin.html";
+  } else {
+    showNotification("Invalid admin credentials", "error");
+  }
+}
