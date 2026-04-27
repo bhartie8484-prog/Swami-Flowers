@@ -1020,6 +1020,13 @@
             btn.onclick ? "Has onclick" : "No onclick",
           );
         });
+
+        // Open login popup on page load
+        if (!localStorage.getItem("isLoggedIn")) {
+          setTimeout(() => {
+            openAuthModal();
+          }, 500);
+        }
       });
     </script>
     <script src="script.js"></script>
